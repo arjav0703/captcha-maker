@@ -2,34 +2,34 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Captcha Maker</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-
-<body class="bg-gray-200 min-h-screen flex justify-center items-center">
-  <div class="bg-white p-10 rounded-lg shadow-lg w-full max-w-md">
-    <h1 class="text-2xl font-semibold text-center text-gray-700 mb-6">Captcha Verification</h1>
-
-    <div id="captchaTable" class="flex justify-center space-x-4 mb-6">
-    </div>
-
-    <div class="flex flex-col items-center space-y-4">
-      <input type="text" id="captchaInput" class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Captcha">
-      
-      <div class="flex space-x-4 w-full">
-        <button id="resetButton" class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 focus:outline-none">
-          Reset
-        </button>
-        <button id="verifyButton" class="w-full bg-green-500 text-white py-3 rounded-md hover:bg-green-700 focus:outline-none">
-          Verify
-        </button>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captcha Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  
+  <body class="bg-blue-50 min-h-screen flex justify-center items-center">
+    <div class="bg-white p-10 rounded-lg shadow-lg w-full max-w-md">
+      <h1 class="text-3xl font-bold text-center text-indigo-800 mb-6">Captcha Verification</h1>
+  
+      <div id="captchaTable" class="flex justify-center space-x-4 mb-6">
       </div>
+  
+      <div class="flex flex-col items-center space-y-4">
+        <input type="text" id="captchaInput" class="w-full py-3 px-4 border border-indigo-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter Captcha">
+        
+        <div class="flex space-x-4 w-full">
+          <button id="resetButton" class="w-full bg-orange-500 text-white py-3 rounded-md hover:bg-orange-600 focus:outline-none">
+            Reset
+          </button>
+          <button id="verifyButton" class="w-full bg-purple-600 text-white py-3 rounded-md hover:bg-purple-700 focus:outline-none">
+            Verify
+          </button>
+        </div>
+      </div>
+  
+      <p id="resultMessage" class="mt-4 text-center text-lg"></p>
     </div>
-
-    <p id="resultMessage" class="mt-4 text-center"></p>
-  </div>
 
   <script src="script.js"></script>
 </body>
