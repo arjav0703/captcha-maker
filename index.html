@@ -8,28 +8,28 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-gradient-to-r from-blue-200 to-blue-500 min-h-screen flex justify-center items-center">
-    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h1 class="text-4xl font-extrabold text-center text-blue-800 mb-8">Captcha Verification</h1>
+<body class="bg-gradient-to-r from-gray-800 to-gray-900 min-h-screen flex justify-center items-center">
+    <div class="bg-gray-900 p-10 rounded-lg shadow-lg w-full max-w-lg">
+        <h1 class="text-4xl font-bold text-center text-white mb-8">Captcha Verification</h1>
 
         <div id="captchaTable" class="flex justify-center space-x-4 mb-6">
             <!-- Captcha will be generated here -->
         </div>
 
         <div class="flex flex-col items-center space-y-4">
-            <input type="text" id="captchaInput" class="w-full py-3 px-4 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" placeholder="Enter Captcha">
+            <input type="text" id="captchaInput" class="w-full py-3 px-4 border border-gray-700 bg-gray-800 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 transform hover:scale-105" placeholder="Enter Captcha">
 
             <div class="flex space-x-4 w-full">
-                <button id="resetButton" class="w-full bg-yellow-400 text-white py-3 rounded-md hover:bg-yellow-500 focus:outline-none transition duration-200">
+                <button id="resetButton" class="w-full bg-yellow-500 text-gray-900 py-3 rounded-md hover:bg-yellow-600 focus:outline-none transition duration-200 transform hover:scale-105">
                     Reset
                 </button>
-                <button id="verifyButton" class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 focus:outline-none transition duration-200">
+                <button id="verifyButton" class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 focus:outline-none transition duration-200 transform hover:scale-105">
                     Verify
                 </button>
             </div>
         </div>
 
-        <p id="resultMessage" class="mt-4 text-center text-lg text-gray-700"></p>
+        <p id="resultMessage" class="mt-4 text-center text-lg text-gray-400"></p>
     </div>
 
     <script src="script.js"></script>
