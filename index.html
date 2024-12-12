@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>The Captcha Generator</title>
+	<link href=
+"https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+		rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex 
+			flex-col items-center justify-center">
+	<div class="bg-white p-8 rounded-lg shadow-md w-full 
+				md:w-1/2 lg:w-1/3 border-2 border-green-600">
+		<h1 class="text-3xl font-bold text-center mb-8">
+
+		</h1>
+
+		<div id="captchaTable"
+			class="flex justify-center items-center space-x-4 mb-4">
+		</div>
+
+		<div class="flex justify-center items-center space-x-4 mb-4">
+			<input type="text" id="captchaInput"
+				class="border border-gray-300 rounded-md 
+						py-2 px-3 focus:outline-none flex-1"
+				placeholder="Enter Captcha">
+
+			<button id="refreshButton"
+					class="bg-blue-500 text-white px-6 py-2 
+						rounded-md focus:outline-none">
+				Refresh
+			</button>
+		</div>
+
+		<button id="verifyButton"
+				class="bg-green-500 text-white px-6 py-2 
+						rounded-md self-center focus:outline-none">
+			Verify
+		</button>
+
+		<p id="resultMessage" class="mt-4"></p>
+	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const captchaTable = document.getElementById('captchaTable');
+			const captchaInput = document.getElementById('captchaInput');
+			const refreshButton = document.getElementById('refreshButton');
+			const verifyButton = document.getElementById('verifyButton');
+			const resultMessage = document.getElementById('resultMessage');
+			
+
+			generateCaptchaTable();
+			
+
+			refreshButton.addEventListener('click', function () {
+				generateCaptchaTable();
+				resultMessage.textContent = '';
+			});
+			
+
+			verifyButton.addEventListener('click', function () {
+				const inputText = 
+					captchaInput.value.trim().toLowerCase();
+				const captchaText = 
+					captchaTable.dataset.captcha.trim().toLowerCase();
+				
+
+				if (inputText === captchaText) {
+					resultMessage.textContent = 'Captcha verified successfully.';
+					resultMessage.classList.remove('text-red-500');
+					resultMessage.classList.add('text-green-500');
+				} else {
+					resultMessage.textContent = 'Incorrect Captcha. Please try again.';
+					resultMessage.classList.remove('text-green-500');
+					resultMessage.classList.add('text-red-500');
+				}
+				
+
+				captchaInput.value = '';
+				generateCaptchaTable();
+			});
+			
+
+			function generateRandomString(length) {
+				const characters = 
+'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+				let result = '';
+				for (let i = 0; i < length; i++) {
+					result += 
+					characters.charAt(Math.floor(Math.random() * 
+												characters.length));
+				}
+				return result;
+			}
+			
+
+			function generateCaptchaTable() {
+				const captchaText = generateRandomString(6);
+				captchaTable.dataset.captcha = captchaText;
+				captchaTable.innerHTML = '';
+				for (let i = 0; i < captchaText.length; i++) {
+					const cell = document.createElement('div');
+					cell.textContent = captchaText.charAt(i);
+					cell.classList.add(
+						'text-4xl', 'font-bold', 'w-12', 'h-12', 'text-center', 
+						'border', 'border-gray-300');
+					captchaTable.appendChild(cell);
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>
